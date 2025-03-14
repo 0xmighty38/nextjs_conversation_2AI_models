@@ -10,6 +10,7 @@ export default async function handler(req, res) {
     }
 
     const { messages } = req.body;
+    //  + "Remember! Each answer mustn't exceed 5 sentences. And use common conversation style and don't say like statement. Say like a human.";
 
     try {
         const completion = await openai.chat.completions.create({

@@ -9,12 +9,12 @@ export default function ChatPage() {
     const startConversation = async() => {
         setIsConversationActive(true);
         let currentMessages = [
-            { role: 'user', content: `Let us embark on a discussion regarding: ${initialPrompt}` },
+            { role: 'user', content: `Let us embark on a discussion regarding: ${initialPrompt} Remember! Each answer mustn't exceed 5 sentences. And use common conversation style and don't say like statement. Say like a human.` },
         ];
         setMessages(currentMessages);
 
         while (
-            currentMessages.filter((msg) => msg.role === 'assistant').length < 10
+            currentMessages.filter((msg) => msg.role === 'assistant').length < 20
         ) {
             const nextBot =
                 currentMessages.filter((msg) => msg.role === 'assistant').length % 2 === 0 ?
@@ -36,7 +36,7 @@ export default function ChatPage() {
             const nextMessage = {
                 ...data.message,
                 content: nextBot === 'Bot A' ?
-                    `Greetings! I am Bot A, delighted to elaborate on this matter. ${data.message.content}` : `Salutations! Bot B here, offering a fresh perspective on our discussion. ${data.message.content}`,
+                    ` ${data.message.content}` : `${data.message.content}`,
             };
             currentMessages.push(nextMessage);
             setMessages([...currentMessages]);
