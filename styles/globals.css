@@ -1,0 +1,22 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    /* Fallback until Google Font loads */
+    margin: 0;
+    padding: 0;
+    /* background-color: #1a1a2e; */
+    /* Matches container gradient */
+}
+
+
+/* Fade-in animation for messages */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
